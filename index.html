@@ -5,15 +5,30 @@
 	<title></title>
 </head>
 <body>
-	<div style="border: 1px solid black; width: 300px;height: 200px;"></div>
+	<div style="border:1px solid black; width:300px;height:200px;" id="message"></div>
 <div>
-	<input type="text" name="content" id='content'>
-	<input type="button" value="发送">
+	<input type="text"  id="content">
+	<input type="button" value="发送" id="btn">
 </div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
-	if (window.WebSocket){
-		var ws=new WebSocket('ws://39.105.42.250:9501');//WebSocket协议  连接线上代码
-	}
+    if(window.WebSocket){
+        var ws =new WebSocket('ws://39.105.42.250:9501');
+        ws.onmessage =function(event){
+            var msg=event.data;
+            $("#message").append("<p>"+msg+"</p >");
+        }
+        $(document).on('click',"#btn",function(){
+            var content = $('#content').val();
+            var json = ""+content+"";
+            alert(json);
+            ws.send(json);
+        })
+
+
+    }
+
+
 </script>
 </body>
 </html>
