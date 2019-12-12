@@ -16,13 +16,14 @@
         var ws =new WebSocket('ws://39.105.42.250:9501');
         ws.onmessage =function(event){
             var msg=event.data;
+            console.log(msg);
             $("#message").append("<p>"+msg+"</p >");
         }
         $(document).on('click',"#btn",function(){
             var content = $('#content').val();
-            var json = ""+content+"";
-            alert(json);
-            ws.send(json);
+            var json ="{'content':"+content+"}";
+            // alert(json);
+            ws.send(content);
         })
 
 
