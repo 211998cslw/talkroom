@@ -21,11 +21,11 @@
                 <h1>注册表单</h1>
                 <div class="form_item">
                     <label for="username">用户名：</label>
-                    <input type="text" name="username" id="username" placeholder="请输入用户名" required >
+                    <input type="text" name="name" id="username" placeholder="请输入用户名" required >
                 </div>
                 <div class="form_item">
                     <label for="password">密码：</label>
-                    <input type="password" name="password" id="password" placeholder="请输入密码名" required>
+                    <input type="password" name="pwd" id="password" placeholder="请输入密码名" required>
                 </div>
                 <div class="form_item">
                     <label for="email">电子邮箱：</label>
@@ -49,11 +49,11 @@
 				<h1>登录表单</h1>
 				<div class="form_item" method="post">
 					<label for="username">用户名：</label>
-					<input type="text" name="username" id="username" placeholder="请输入用户名" required>
+					<input type="text" name="name" id="username" placeholder="请输入用户名" required>
 				</div>
 				<div class="form_item">
 					<label for="password">密码：</label>
-					<input type="password" name="password" id="password" placeholder="请输入密码名" required>
+					<input type="password" name="pwd" id="password" placeholder="请输入密码名" required>
 				</div>
 				<div class="form_item">
 					<input type="submit" value="登录">
