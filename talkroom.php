@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $uid=$_GET['uid'];
-// echo $_SESSION['$uid'];
+echo $_SESSION[$uid]; 
  ?>
 <!DOCTYPE html>
 <html>
