@@ -11,8 +11,9 @@ $server->on('open', function (Swoole\WebSocket\Server $server, $request) {
 $server->on('message', function (Swoole\WebSocket\Server $server, $frame) {
 	$data=$frame->data;
 	$user=$frame->fd;
+	$content="<span style='clear:both'></span><p style='float:right'>".$data."</p>";
 	// $content=json_decode($data)['content'];
-	var_dump($data);
+	// var_dump($data);
     // echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
     $server->push($user, $data);
 });
