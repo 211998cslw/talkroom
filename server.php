@@ -1,22 +1,23 @@
-<?php 
+<?php
 $server = new Swoole\WebSocket\Server("0.0.0.0", 9501);
 
 $server->on('open', function (Swoole\WebSocket\Server $server, $request) {
-	$content="游客".crc32($request->fd)."进入了聊天室";
-	echo "visitor".crc32($request->fd)."entry this talkroom";
-    $server->push($request->fd,$content);
+    //     $content="游客".crc32($request->fd)."进入了聊天室";
+    //     echo "visitor".crc32($request->fd)."entry this talkroom";
+    // $server->push($request->fd,$content);
 
 });
 
 $server->on('message', function (Swoole\WebSocket\Server $server, $frame) {
-	$data=$frame->data;
-	$info=json_decode($data,true);
-	$user=$frame->fd;
-	$content="<span style='clear:both'></span><p style='float:right'>".$data."</p>";
-	// $content=json_decode($data)['content'];
-	// var_dump($data);
+        // $data=$frame->data;
+        $info=json_decode($frame->data,true);
+        print_r($info);
+        $user=$frame->fd;
+        $content="<span style='clear:both'></span><p style='float:right'>".$frame->$data."</p>";
+        // $content=json_decode($data)['content'];
+        // var_dump($data);
     // echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-    $server->push($user, $data);
+    $server->push($user, $content);
 });
 
 $server->on('close', function ($ser, $fd) {
@@ -25,4 +26,4 @@ $server->on('close', function ($ser, $fd) {
 
 $server->start();
 
- ?>8
+ ?>

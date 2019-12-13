@@ -1,7 +1,7 @@
 <?php 
 session_start();
-$uid=$_GET['uid'];
-echo $_SESSION[$uid]; 
+$id=$_GET['id'];
+// echo $_SESSION[$id]; 
  ?>
 <!DOCTYPE html>
 <html>
@@ -20,10 +20,10 @@ echo $_SESSION[$uid];
     if(window.WebSocket){
         var ws =new WebSocket('ws://39.105.42.250:9501');
         ws.onopen=function(event){
-            var username="<?php echo $_SESSION[$uid];?>";
+            var username="<?php echo $_SESSION[$id];?>";
             // alert(username);
-            var json="{'type':'login','content':'"+username+"'}";
-            console.log(json);
+            var json='{"type":"login","content":"'+name+'"}';
+            // console.log(json);
             ws.send(json);
         }
         ws.onmessage =function(event){
@@ -37,8 +37,6 @@ echo $_SESSION[$uid];
             // alert(json);
             ws.send(content);
         })
-
-
     }
 
 
