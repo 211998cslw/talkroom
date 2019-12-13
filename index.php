@@ -27,14 +27,8 @@
                     <label for="password">密码：</label>
                     <input type="password" name="pwd" id="password" placeholder="请输入密码名" required>
                 </div>
-                <div class="form_item">
-                    <label for="email">电子邮箱：</label>
-                    <input type="email" name="email" id="email" placeholder="请输入电子邮件" required>
-                </div>
-                <div class="form_item">
-                    <label for="tel">电话：</label>
-                    <input type="tel" name="tel" id="tel" placeholder="请输入手机号码" required>
-                </div>
+                
+                
                 <div class="form_item">
                     <input type="submit" value="注册">
                 </div>
