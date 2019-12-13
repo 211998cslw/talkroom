@@ -10,6 +10,7 @@ $server->on('open', function (Swoole\WebSocket\Server $server, $request) {
 
 $server->on('message', function (Swoole\WebSocket\Server $server, $frame) {
 	$data=$frame->data;
+	$info=json_decode($data,true);
 	$user=$frame->fd;
 	$content="<span style='clear:both'></span><p style='float:right'>".$data."</p>";
 	// $content=json_decode($data)['content'];

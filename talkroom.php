@@ -20,9 +20,11 @@ $uid=$_GET['uid'];
     if(window.WebSocket){
         var ws =new WebSocket('ws://39.105.42.250:9501');
         ws.onopen=function(event){
-            var username="<?php echo $_SESSION[$uid];?>"
+            var username="<?php echo $_SESSION[$uid];?>";
             // alert(username);
-            ws.send(username);
+            var json="{'type':'login','content':'"+username+"'}";
+            console.log(json);
+            ws.send(json);
         }
         ws.onmessage =function(event){
             var msg=event.data;
